@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
-
+import jlox.Scanner.*;
 
 public class Lox {
     static boolean hadError = false;
@@ -54,14 +54,14 @@ public class Lox {
 
     private static void run(String source){
         Scanner scanner = new Scanner(source);
-        List<Token> tokens = scanner.scanTokens();
+        List<Token> tokens = scanner.scan;
         for (Token token : tokens){
             System.out.println(token);
         }
     }
 
     static void error (int line, String message){
-        report(line + " " + message );
+        report(line , " " , message );
     }
 
     private static void report(int line, String where, String message){
